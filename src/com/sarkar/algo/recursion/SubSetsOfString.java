@@ -4,12 +4,24 @@ public class SubSetsOfString {
 
 	public static void main(String[] args) {
 		String str = "abc";
-		System.out.println(subSets(str));
+		subSeq(str);
 	}
 
-	private static String subSets(String str) {
-		
-		return null;
+	private static void subSeq(String str) {
+		findSubSetsRecursively("", str);
+	}
+
+	private static void findSubSetsRecursively(String processed, String unprocessed) {
+
+		if (unprocessed.isEmpty()) {
+			System.out.println(processed);
+			return;
+		}
+
+		char ch = unprocessed.charAt(0);
+		findSubSetsRecursively(processed + ch, unprocessed.substring(1));
+		findSubSetsRecursively(processed, unprocessed.substring(1));
+
 	}
 
 }
