@@ -26,5 +26,7 @@ public class TheMissingOne {
         System.out.println(
                 findMissing(Arrays.asList(3, 7, 1, 2, 8, 4, 5))
         );
-    }
+        
+            
+        }
 }
