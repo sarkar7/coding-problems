@@ -2,6 +2,7 @@ package com.sarkar.algo.linkedlist;
 
 public class MergeTwoSortedList {
 
+	/*
 	public static void main(String[] args) {
 		ListNode head = new ListNode(1, null);
 		head.next = new ListNode(2, null);
@@ -42,5 +43,5 @@ public class MergeTwoSortedList {
 		}
 		System.out.println();
 	}
-
+	*/
 }
