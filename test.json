@@ -1,0 +1,34 @@
+[
+    {
+      "id": "dnskad2313d-13jr-h78l-nfjdsn23-2378jks2",
+      "name": "PLAN-IT",
+      "enrollments": [
+        {
+          "id": "808767dsad6-bdsah68-dksab128kjad-6387jk1",
+          "enrollment-type": "DEFAULT",
+          "status": "NOTENROLLED"
+        }
+      ]
+    },
+    {
+      "id": "hdksjah32kjas-7987das-ndkjas2332-y3872hjda-y789das",
+      "name": "PLAN-IT-AMOUNT",
+      "enrollments": [
+        {
+          "id": "3729327hkjhk33-dsakhda63hak-93928dsa-hdsiauh2903knl",
+          "enrollment-type": "DEFAULT",
+          "status": "ENROLLED"
+        }
+      ]
+    },
+    {
+      "id": "dnskad2313d-13jr-h78l-nfjdsn23-2378jks2",
+      "name": "PLAN-IT-TRANSACTION",
+      "enrollments": [
+        {
+          "id": "daskj3782-d32234dkad-673gggjh3jk-dahs2389n",
+          "status": "NOTENROLLED"
+        }
+      ]
+    }
+  ]

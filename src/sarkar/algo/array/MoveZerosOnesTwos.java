@@ -37,7 +37,7 @@ public class MoveZerosOnesTwos {
 
 	public static void main(String[] args) {
 		//int arr[] = { 0, 0, 1, 2, 0, 1, 2 };
-		int arr[] = { 2, 0, 1 };
+		int[] arr = { 2,0,2,1,1,0 };
 		sort(arr);
 	}
 
