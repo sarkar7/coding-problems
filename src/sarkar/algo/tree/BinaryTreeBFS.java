@@ -1,30 +1,36 @@
 package sarkar.algo.tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class BinaryTreeBFS {
 
-    public static void levelOrderTraversal(TreeNode root) {
+    public static List<List<Integer>> levelOrderTraversal(TreeNode root) {
+        List<List<Integer>> list = new ArrayList<>();
         if (root == null)
-            return;
-
+            return list;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
+
         while (!queue.isEmpty()) {
             int levelSize = queue.size();
+            List<Integer> levelList = new ArrayList<>();
+            // Iterate Queue
             for (int i = 0; i < levelSize; i++) {
                 TreeNode temp = queue.poll();
-                System.out.print(temp.val + "  ");
-                if (temp.left != null) {
+                // adding parent node
+                levelList.add(temp.val);
+                // logic to add child nodes
+                if (temp.left != null)
                     queue.offer(temp.left);
-                }
-                if (temp.right != null) {
+                if (temp.right != null)
                     queue.offer(temp.right);
-                }
             }
-            System.out.println();
+            list.add(levelList);
         }
+        return list;
     }
 
     public static void main(String[] args) {
@@ -35,7 +41,7 @@ public class BinaryTreeBFS {
         root.left.right = new TreeNode(7);
         root.right.left = new TreeNode(9);
         root.right.right = new TreeNode(6);
-        levelOrderTraversal(root);
+        System.out.println(levelOrderTraversal(root));
     }
 
 }
