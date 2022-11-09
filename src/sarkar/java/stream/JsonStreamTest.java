@@ -17,18 +17,20 @@ public class JsonStreamTest {
 
     public static void main(String[] args) throws IOException, ParseException {
 
-        loadMonoList();
-
+      //  loadMonoList();
+    /*
         // Solution 1
         boolean isEnrolled = mono.stream()
                 .anyMatch(m -> (m.getName().equals("PLAN-IT-AMOUNT") || m.getName().equals("PLAN-IT-TRANSACTION"))
                         && m.getEnrollment().getStatus().equals("ENROLLED"));
-
+        
         if (isEnrolled) {
             System.out.println("Update the List");
         }
+    */
 
-/*
+
+    /*
         // Solution 2
         long count = mono.stream()
                 .filter(m -> m.getName().equals("PLAN-IT-AMOUNT") || m.getName().equals("PLAN-IT-TRANSACTION"))
@@ -38,15 +40,16 @@ public class JsonStreamTest {
         if (count > 0) {
             System.out.println("Update the List");
         }
-*/
+    */
 
+        /*
         mono.stream()
                 .filter(f -> f.getName().startsWith("PLAN-IT"))
                 .forEach(s -> System.out.println(s.getName()));
-
+        */
 
     }
-
+/*
     private static void loadMonoList() {
         Object obj = null;
         try (FileReader reader = new FileReader("test.json")) {
@@ -73,6 +76,6 @@ public class JsonStreamTest {
     private static Enrollment buildEnrollmentObject(JSONObject obj) {
         return new Enrollment((String) obj.get("id"), (String) obj.get("enrollment-type"), (String) obj.get("status"));
     }
-
+*/
 
 }

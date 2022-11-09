@@ -1,6 +1,7 @@
 package sarkar.algo.heap;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -17,22 +18,17 @@ public class KthLargestElement {
 		System.out.println(findKthLargestNumberUsingMinHeap(list, 3));
 	}
 
-	private static int findKthLargestNumberUsingMaxHeap(List<Integer> nums, int k) {
+	public static int findKthLargestNumberUsingMaxHeap(List<Integer> nums, int k) {
 		// base case
-		if (nums == null || nums.size() < k) {
+		if (nums == null || nums.size() < k)
 			System.exit(-1);
-		}
 
-		// build a max-heap using the `PriorityQueue` class from all
-		// elements in the list
-		PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
-		// or pass `Comparator.reverseOrder()`
+		PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
 		pq.addAll(nums);
 
 		// pop from max-heap exactly `k-1` times
-		while (--k > 0) {
+		while (--k > 0)
 			pq.poll();
-		}
 
 		// return the root of max-heap
 		return pq.peek();

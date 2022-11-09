@@ -33,22 +33,26 @@ public class RotateArrayByK {
         }
     }
 
-    static void rotateArrEfficient(int[] arr, int d, int n) {
-        reverse(arr, 0, d - 1);
-        reverse(arr, d, n - 1);
-        reverse(arr, 0, n - 1);
+    
+    
+    public void rotate(int[] nums, int k) {
+        k %= nums.length;
+        reverse(nums, 0, nums.length - 1);
+        reverse(nums, 0, k - 1);
+        reverse(nums, k, nums.length - 1);
     }
 
-    static void reverse(int[] arr, int low, int high) {
-        while(low < high) {
-            int temp = arr[low];
-            arr[low] = arr[high];
-            arr[high] = temp;
-
-            low++;
-            high--;
+    public void reverse(int[] nums, int start, int end) {
+        while (start < end) {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
         }
     }
+    
+    
 
 
     public static void main(String[] args) {

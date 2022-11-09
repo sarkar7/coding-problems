@@ -8,30 +8,27 @@ import java.util.PriorityQueue;
 
 public class TopKFrequentElements {
 
+	public static int[] topKFrequent(int[] nums, int k) {
+		Map<Integer, Integer> map = new HashMap<>();
+		for (int i = 0; i < nums.length; i++) {
+			map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+		}
 
-    public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
-        }
+		PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>(
+				(a, b) -> a.getValue().equals(b.getValue()) 
+						? Integer.compare(b.getKey(), a.getKey())
+						: Integer.compare(b.getValue(), a.getValue()));
 
+		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+			queue.offer(entry);
+		}
 
-        PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>(
-                (a, b) -> a.getValue().equals(b.getValue()) ? Integer.compare(b.getKey(), a.getKey())
-                        : Integer.compare(b.getValue(), a.getValue()));
+		int[] res = new int[k];
+		for (int i = 0; i < k; i++) {
+			res[i] = queue.poll().getKey();
+		}
 
-
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            queue.offer(entry);
-        }
-
-        int[] res = new int[k];
-        for (int i = 0; i < k; i++) {
-            res[i] = queue.poll().getKey();
-        }
-
-        return res;
-    }
-
+		return res;
+	}
 
 }
