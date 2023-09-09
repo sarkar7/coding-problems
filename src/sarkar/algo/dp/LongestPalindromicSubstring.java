@@ -2,34 +2,64 @@ package sarkar.algo.dp;
 
 public class LongestPalindromicSubstring {
 
-	public String longestPalindrome(String s) {
-		if (s.isEmpty())
-			return "";
+    public static void longestPalindrome(String s) {
+        if (s.isEmpty())
+            return;
 
-		int[] indices = { 0, 0 };
+        if (s.length() == 1) {
+            System.out.println("Maximum length is 1");
+            return;
+        }
 
-		for (int i = 0; i < s.length(); ++i) {
-			int[] indices1 = extend(s, i, i);
-			if (indices1[1] - indices1[0] > indices[1] - indices[0])
-				indices = indices1;
-			if (i + 1 < s.length() && s.charAt(i) == s.charAt(i + 1)) {
-				int[] indices2 = extend(s, i, i + 1);
-				if (indices2[1] - indices2[0] > indices[1] - indices[0])
-					indices = indices2;
-			}
-		}
-		return s.substring(indices[0], indices[1] + 1);
-	}
+        if (s.length() == 2) {
+            if (s.charAt(0) == s.charAt(1)) {
+                System.out.println("Maximum length is 2");
+            } else {
+                System.out.println("Maximum length is 1");
+            }
+            return;
+        }
 
-	private int[] extend(final String s, int i, int j) {
-		for (; i >= 0 && j < s.length(); --i, ++j)
-			if (s.charAt(i) != s.charAt(j))
-				break;
-		return new int[] { i + 1, j - 1 };
-	}
+        // logic for the string with length greater than 2
+        int[][] dp = new int[s.length()][s.length()];
+        int i = 0, j = 0;
+        while (i < s.length()) {
+            dp[i][j] = 1;
+            i++;
+            j++;
+        }
 
-	public static void main(String[] args) {
+        int count = 1;
+        int maxLength = Integer.MIN_VALUE;
+        int startIndex = 0;
+        int endIndex = 0;
 
-	}
+        while (count < s.length()) {
+            i = 0;
+            j = count;
+            while (i < s.length() - count) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    dp[i][j] = 2 + dp[i + 1][j - 1];
+                    if (dp[i][j] > maxLength) {
+                        maxLength = dp[i][j];
+                        startIndex = i;
+                        endIndex = j;
+                    }
+                } else {
+                    dp[i][j] = 0;
+                }
+                i++;
+                j++;
+            }
+            count++;
+        }
+
+        System.out.println("Maximum length is " + maxLength + " & start index - " + startIndex + " | end index - " + endIndex);
+    }
+
+
+    public static void main(String[] args) {
+        longestPalindrome("MA");
+    }
 
 }
