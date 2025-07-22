@@ -3,9 +3,9 @@ package sarkar.java.ds.arraylist;
 import sarkar.java.common.Employee;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
 
 public class ArrayListTest {
 
@@ -17,6 +17,9 @@ public class ArrayListTest {
         names.add("Neeraj");
         names.add("Raj");
         names.add("Soumya");
+
+        System.out.println(names.indexOf("Rajj"));
+
 
         //System.out.println(names);
         //names.forEach(e -> System.out.println(e));
@@ -30,12 +33,12 @@ public class ArrayListTest {
 
         */
 
-        List<Employee> employeeList = Employee.getEmployees();
+        /*List<Employee> employeeList = Employee.getEmployees();
         employeeList.stream()
                 .filter(e -> e.getGender().equals("Male"))
                 .peek(
                         e -> e.setName(e.getName().toUpperCase())
-                ).forEach(System.out::println);
+                ).forEach(System.out::println);*/
 
 
 

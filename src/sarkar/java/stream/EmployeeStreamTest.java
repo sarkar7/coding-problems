@@ -50,17 +50,18 @@ public class EmployeeStreamTest {
         }
     }
 
+
     public static void avgSalary(List<Employee> employeeList) {
         Map<String, Double> avgSalary = employeeList.stream()
                 .collect(Collectors.groupingBy
                         (Employee::getDepartment,
                                 Collectors.averagingDouble(Employee::getSalary)));
         Set<Map.Entry<String, Double>> entrySet = avgSalary.entrySet();
-        for (Map.Entry<String, Double> entry : entrySet)
-        {
+        for (Map.Entry<String, Double> entry : entrySet) {
             System.out.println(entry.getKey()+" : "+entry.getValue());
         }
     }
+
 
     public static void oldestEmp(List<Employee> employeeList) {
         Optional<Employee> oldestEmp = employeeList.stream()

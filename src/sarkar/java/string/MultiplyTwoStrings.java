@@ -89,6 +89,4 @@ public class MultiplyTwoStrings {
 
         return builder.reverse().toString();
     }
-
-
 }
